@@ -1,0 +1,36 @@
+doctype html
+include includes/head.pug
+style.
+    body {
+        background-color: #F3F3F3;
+    }
+    span {
+        color: #B0B0B0;
+    }
+
+body
+    include includes/header.pug
+
+    .container 
+        .row.mt-4
+            .col-12
+                h5='Resultados de busqueda:'
+        .row.row-cols-4.mt-2.mb-5
+            if isEmpty
+                each hotel in hotels
+                    .col.mt-3
+                        a(href="/hoteles/"+hotel.id).card.card-result
+                            - var image=hotel.urlImage
+                            img(src=image).card-img-top.img-result.img-responsive
+                            .card-body
+                                h5.card-title=hotel.name
+                                p.text-success.badge.bg-light='$'+hotel.mediumPrice+' COP x noche'
+                                div.w-100
+                                    - var stars=hotel.stars
+                                    - for (var x = 0; x < stars; x++)
+                                        i.fas.fa-star.text-warning
+                                    span=' '+stars+' estrellas'
+                                p.card-text=hotel.address+', ' + hotel.city + '-' + hotel.department
+            else 
+                .col-12
+                    p.text-center='No hemos encontrado hoteles, intenta de nuevo o revisa si estás digitando bien la búsqueda'

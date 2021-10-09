@@ -1,0 +1,29 @@
+doctype html
+include includes/head.pug
+
+body
+    include includes/header.pug
+    .container
+        .row.mt-4
+            .col-6
+                img(src=hotel.urlImage, alt=hotel.name).w-100
+                h2.mt-2=hotel.name
+                div.w-100
+                    - var stars=hotel.stars
+                    - for (var x = 0; x < stars; x++)
+                        i.fas.fa-star.text-warning
+                    span=' '+stars+' estrellas'
+                p=hotel.address+', '+hotel.city+', '+hotel.department 
+            .col-6
+                if roomsEmpty
+                    each room in rooms
+                        .card.mb-3
+                            .row.g-0
+                                .col-md-4
+                                    img(src=room.urlImage alt=room.description).img-fluid.rounded-start
+                                .col-md-8 
+                                    .card-body 
+                                        h5.card-title=room.description
+                                        p.text-success.badge.bg-light='$'+room.price+' COP x noche'
+                else
+                    p="No hay habitaciones resgistradas"
