@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
   const params = req.query.query;
   const hotels = await getHotelsByQuery(params);
   const isEmpty = hotels.length > 0 ? true : false;
-  res.render("hotels", { hotels, isEmpty });
+  res.render("hoteles", { hotels, isEmpty, params });
 });
 
 router.get("/:id", async (req, res) => {

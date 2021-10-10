@@ -7,7 +7,8 @@ module.exports = class Hotel {
     stars,
     mediumPrice,
     city,
-    department
+    department,
+    urlPage = ""
   ) {
     this.id = id;
     this.name = name;
@@ -17,5 +18,6 @@ module.exports = class Hotel {
     this.mediumPrice = mediumPrice;
     this.city = city;
     this.department = department;
+    this.urlPage = urlPage;
   }
 };

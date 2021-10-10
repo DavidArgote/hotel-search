@@ -2,7 +2,7 @@ doctype html
 include includes/head.pug
 
 body
-    include includes/header.pug
+    include includes/navbar.pug
     .container
         .row.mt-4
             .col-6
@@ -14,6 +14,7 @@ body
                         i.fas.fa-star.text-warning
                     span=' '+stars+' estrellas'
                 p=hotel.address+', '+hotel.city+', '+hotel.department 
+                a(href=hotel.urlPage target="_blank").btn.btn-success="Ir a la página web del hotel"
             .col-6
                 if roomsEmpty
                     each room in rooms

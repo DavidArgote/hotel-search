@@ -9,12 +9,13 @@ style.
     }
 
 body
-    include includes/header.pug
+    include includes/navbar.pug
 
     .container 
         .row.mt-4
             .col-12
                 h5='Resultados de busqueda:'
+                    span.ms-2.badge.bg-light.text-dark=params
         .row.row-cols-4.mt-2.mb-5
             if isEmpty
                 each hotel in hotels
